@@ -1,7 +1,11 @@
 export default function Home() {
   return (
-    <div>
-      <button className="btn bg-center">Home</button>
+    <div className="relative">
+
+      <section className="w-full">
+
+        <div className="relative hero-content"></div>
+      </section>
     </div>
   );
 }
