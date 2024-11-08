@@ -21,11 +21,8 @@ export default function Home() {
             </h2>
 
             <ul className="steps steps-vertical lg:steps-horizontal">
-              <li className="step step-info">Fly to moon</li>
-              <li className="step step-info">Shrink the moon</li>
-              <li className="step step-info">Grab the moon</li>
-              <li className="step step-error" data-content="?">
-                Sit on toilet
+              <li className="step step-secondary text-sm">
+              <div className="badge">Créer un compte</div>
               </li>
             </ul>
 
