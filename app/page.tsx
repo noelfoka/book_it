@@ -16,15 +16,26 @@ export default function Home() {
             </h1>
 
             <h2 className="py-4 md:py-6 text-xl md:text-4xl font-semibold">
-              Gérez la réservation de vos <span>salles de réunion</span>{" "}
+              Gérez la réservation de vos <span className="text-secondary">salles de réunion</span>{" "}
               simplement.
             </h2>
 
             <ul className="steps steps-vertical lg:steps-horizontal">
               <li className="step step-secondary text-sm">
-              <div className="badge">Créer un compte</div>
+                <div className="badge">Créez un compte</div>
+              </li>
+              <li className="step step-secondary text-sm">
+                <div className="badge">réservez une salle</div>
+              </li>
+              <li className="step step-secondary text-sm">
+                <div className="badge">Gérez vos réservations</div>
               </li>
             </ul>
+
+            <div>
+              <button className="btn btn-secondary">Se connecter</button>
+              <button className="btn btn-secondary">S&apos;inscrire</button>
+            </div>
 
           </div>
         </div>
