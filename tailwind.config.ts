@@ -19,6 +19,6 @@ export default {
     daisyui,
   ],
   daisyui: {
-    themes: ["cupcake", "dark", "cmyk"],
+    themes: ["cupcake", "dark", "emerald"],
   },
 } satisfies Config;
