@@ -55,14 +55,14 @@ export default function Home() {
 
         <div className="p-5 md:p-0">
 
-          <div>
+          <div className="relative rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 lg:rounded-2xl md:p-4 md:w-full">
             <Image 
               src="/img.png" 
               alt="aperçu"
               width={1600}
               height={500}
               quality={100}
-              className="rounded-md shadow-2xl ring-1 ring-gray-900/10 object-cover filter contrast-125"
+              className="rounded-md shadow-2xl ring-1 ring-gray-900/10 object-cover filter contrast-125 saturate-100 w-full h-full"
             />
           </div>
 
