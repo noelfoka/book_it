@@ -5,7 +5,11 @@ export default function Home() {
       <section className="w-full">
         <div className="relative hero-content text-center mx-4 lg:mx-[15%] py-20">
           <div className="max-w-lg">
-            <h1><span>Book<span>it</span></span></h1>
+            <h1>
+              <span>
+                Book<span>It</span>
+              </span>
+            </h1>
           </div>
         </div>
       </section>
