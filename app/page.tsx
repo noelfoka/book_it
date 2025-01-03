@@ -61,6 +61,8 @@ export default function Home() {
               alt="aperçu"
               width={1600}
               height={500}
+              quality={100}
+              className="rounded-md shadow-2xl ring-1 ring-gray-900/10 object-cover filter contrast-125"
             />
           </div>
 
