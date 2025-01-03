@@ -17,12 +17,18 @@ export default function Home() {
 
             <h2 className="py-4 md:py-6 text-xl md:text-4xl font-semibold">
               Gerez la réservation de vos <span>salles de réunion</span>{" "}
-              simplement
+              simplement.
             </h2>
 
             <ul className="steps steps-vertical md:steps-horizontal">
               <li className="step step-secondary text-sm">
-              <div className="badge">default</div>
+                <div className="badge">Creez un compte</div>
+              </li>
+              <li className="step step-secondary text-sm">
+                <div className="badge">Réservez votre salle</div>
+              </li>
+              <li className="step step-secondary text-sm">
+                <div className="badge">Gérez vos réservations</div>
               </li>
             </ul>
           </div>
