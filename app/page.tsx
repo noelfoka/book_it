@@ -20,12 +20,9 @@ export default function Home() {
               simplement
             </h2>
 
-            <ul className="steps">
-              <li className="step step-info">Fly to moon</li>
-              <li className="step step-info">Shrink the moon</li>
-              <li className="step step-info">Grab the moon</li>
-              <li className="step step-error" data-content="?">
-                Sit on toilet
+            <ul className="steps steps-vertical md:steps-horizontal">
+              <li className="step step-secondary text-sm">
+              <div className="badge">default</div>
               </li>
             </ul>
           </div>
