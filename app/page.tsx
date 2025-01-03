@@ -1,5 +1,5 @@
 import { CalendarCheck } from "lucide-react";
-/*import Image from "next/image";*/
+import Image from "next/image";
 export default function Home() {
   return (
     <div className="relative">
@@ -50,6 +50,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <div className="flex justify-center items-center">
+
+        <div className="p-5 md:p-0">
+
+          <div>
+            <Image 
+              src="/img.png" 
+              alt="aperçu"
+              width={1600}
+              height={500}
+            />
+          </div>
+
+        </div>
+
+      </div>
     </div>
   );
 }
