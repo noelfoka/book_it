@@ -14,6 +14,8 @@ export default function Home() {
                 Book<span>It</span>
               </span>
             </h1>
+
+            <h2 className="py-4 md:py-6 text-xl md:text-4xl font-semibold">Gerez la réservation de vos <span>salles de réunion</span> simplement</h2>
           </div>
         </div>
       </section>
