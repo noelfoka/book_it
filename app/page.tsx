@@ -16,7 +16,7 @@ export default function Home() {
             </h1>
 
             <h2 className="py-4 md:py-6 text-xl md:text-4xl font-semibold">
-              Gerez la réservation de vos <span>salles de réunion</span>{" "}
+              Gerez la réservation de vos <span className="text-secondary">salles de réunion</span>{" "}
               simplement.
             </h2>
 
@@ -31,6 +31,11 @@ export default function Home() {
                 <div className="badge">Gérez vos réservations</div>
               </li>
             </ul>
+            {/* Boutton d'action */}
+            <div>
+              <button className="btn btn-secondary">Se connecter</button>
+            </div>
+
           </div>
         </div>
       </section>
