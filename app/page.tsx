@@ -70,7 +70,9 @@ export default function Home() {
 
       </div>
 
-      <footer></footer>
+      <footer className="text-center items-center bg-base-200 text-base-content mt-20 py-5 px-10">
+        <h1>Bookit &copy; 2025 - tout droit réservé</h1>
+      </footer>
 
     </div>
   );
