@@ -55,7 +55,7 @@ export default function Home() {
 
         <div className="p-5 md:p-0">
 
-          <div className="relative rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 lg:rounded-2xl md:p-4 md:w-full">
+          <div className="relative rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 lg:rounded-2xl lg:p-4 lg:w-full md:w-[1200px] md:h-[990px]">
             <Image 
               src="/img.png" 
               alt="aperçu"
