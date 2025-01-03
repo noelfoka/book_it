@@ -34,6 +34,7 @@ export default function Home() {
             {/* Boutton d'action */}
             <div>
               <button className="btn btn-secondary">Se connecter</button>
+              <button className="btn btn-secondary btn-outline">S&apos;inscrire</button>
             </div>
 
           </div>
