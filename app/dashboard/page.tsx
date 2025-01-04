@@ -9,7 +9,7 @@ const page = () => {
   const {user} = useKindeBrowserClient();
 
   return (
-    <div>Bienvenue {user?.email}</div>
+    <div>Bienvenue {user?.given_name}</div>
   )
 }
 
