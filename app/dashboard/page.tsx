@@ -1,9 +1,14 @@
-import React from 'react'
+"use client";
+
+import React, { use } from 'react'
 import {useKindeBrowserClient} from "@kinde-oss/kinde-auth-nextjs";
 
 const page = () => {
+
+  const {user} = useKindeBrowserClient()
+
   return (
-    <div>Bienvenue au tableau de bord</div>
+    <div>Bienvenue {user?.email}</div>
   )
 }
 
