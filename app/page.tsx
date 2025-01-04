@@ -42,7 +42,7 @@ export default function Home() {
                 <div className="badge">Gérez vos réservations</div>
               </li>
             </ul>
-            {/* Boutton d'action */}
+            {/* Boutton d'action avec kinde-auth-nextjs */}
             <div className="mt-6 flex justify-center items-center">
               <LoginLink className="btn btn-secondary">Se connecter</LoginLink>
               <RegisterLink className="btn btn-secondary btn-outline ml-4">
