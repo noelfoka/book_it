@@ -2,6 +2,7 @@
 
 import React from 'react'
 import {useKindeBrowserClient} from "@kinde-oss/kinde-auth-nextjs";
+import {LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
 const page = () => {
 
@@ -9,7 +10,10 @@ const page = () => {
   const {user} = useKindeBrowserClient();
 
   return (
-    <div>Bienvenue {user?.given_name}</div>
+    <div>
+      <div>Bienvenue {user?.given_name}</div>
+      <LogoutLink className='btn'>Se déconnecter</LogoutLink>
+    </div>
   )
 }
 
