@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+
 import React, { useState } from "react";
 import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
@@ -8,6 +10,7 @@ const page = () => {
   const { user } = useKindeBrowserClient();
   const [companyName, setCompanyName] = useState<string>("");
   // const [loading, setLoading] = useState<boolean>(true);
+  const [notification, setNotification] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     
