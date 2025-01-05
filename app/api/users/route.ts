@@ -32,6 +32,19 @@ export async function POST(request: Request) {
         },
       });
     } else {
+      // mise à jour des données de l'utilisateur
+
+      if (user.famillyName == null || user.givenName == null) {
+        user = await prisma.user.update({
+          where: {
+            email,
+          },
+          data: {
+            famillyName: user.famillyName ?? famillyName,
+            givenName: user.givenName ?? givenName,
+          }
+        });
+      }
     }
   } catch (error) {
     console.error("Erreur lors de la création d'un utilisateur", error);
