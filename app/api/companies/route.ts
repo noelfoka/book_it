@@ -11,7 +11,7 @@ export async function POST(request: Request) {
   // vérification des champs requis
   if (!email || !companyName) {
     return NextResponse.json(
-      { error: "Email et nom de l'entreprise sont obligatoires" },
+      { message: "Email et nom de l'entreprise sont obligatoires" },
       { status: 400 }
     );
   }
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
 
   if (!user) {
     return NextResponse.json(
-      { error: "L'utilisateur n'existe pas" },
+      { message: "L'utilisateur n'existe pas" },
       { status: 404 }
     );
   }
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
   if (existingCompany) {
     return NextResponse.json(
-      { error: "Cette entreprise existe déjà" },
+      { message: "Cette entreprise existe déjà" },
       { status: 409 }
     );
   }
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Erreur lors de la création d'une entreprise", error);
     return NextResponse.json(
-      { error: "Internal Server Error" },
+      { message: "Internal Server Error" },
       { status: 500 }
     );
   }
