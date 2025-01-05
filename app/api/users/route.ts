@@ -7,6 +7,7 @@ export async function POST(request: Request) {
   try {
     
   } catch (error) {
-    
+    console.error('Erreur lors de la création d\'un utilisateur', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
 }
