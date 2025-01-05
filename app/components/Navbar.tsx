@@ -50,10 +50,14 @@ const Navbar = () => {
           )}
 
         </div>
+
         <div className="hidden md:flex items-center space-x-6">
           <Link href="/dashboard" className={`link link-hover font-extrabold ${isActive("/dashboard") ? 'text-secondary' : ''}`}>Réserver</Link>
         </div>
-        <LogoutLink className="btn btn-secondary btn-sm hidden md:flex">Se déconnecter</LogoutLink>
+
+        <LogoutLink className="btn btn-secondary btn-sm hidden md:flex">Déconnection</LogoutLink>
+
+        <div></div>
 
       </div>
     </nav>
