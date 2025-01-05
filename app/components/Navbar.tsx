@@ -1,3 +1,5 @@
+"use client";
+
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { CalendarCheck } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -30,6 +32,17 @@ const Navbar = () => {
               Book<span className="text-secondary">It</span>
             </span>
           </h1>
+
+          { loading ? (
+            <div className="flex justify-end mt-2">
+              <span className="loading loading-spinner loading-xs"></span>
+            </div>
+          ) : (
+            <div className="flex justify-end mt-2">
+              <div className="badge badge-ghost">{user?.email}</div>
+            </div>
+          )}
+
         </div>
       </div>
     </nav>
