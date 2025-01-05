@@ -88,28 +88,28 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden shadow-lg p-4 rounded-lg space-y-4 flex flex-col mt-3">
-        <Link
-          href="/dashboard"
-          className={`link link-hover font-extrabold ${
-            isActive("/dashboard") ? "text-secondary" : ""
-          }`}
-        >
-          Réserver
-        </Link>
+          <Link
+            href="/dashboard"
+            className={`link link-hover font-extrabold ${
+              isActive("/dashboard") ? "text-secondary" : ""
+            }`}
+          >
+            Réserver
+          </Link>
 
-        <Link
-          href="/test"
-          className={`link link-hover font-extrabold ${
-            isActive("/test") ? "text-secondary" : ""
-          }`}
-        >
-          Test
-        </Link>
+          <Link
+            href="/test"
+            className={`link link-hover font-extrabold ${
+              isActive("/test") ? "text-secondary" : ""
+            }`}
+          >
+            Test
+          </Link>
 
-        <LogoutLink className="btn btn-secondary btn-sm">
-          Déconnection
-        </LogoutLink>
-      </div>
+          <LogoutLink className="btn btn-secondary btn-sm">
+            Déconnection
+          </LogoutLink>
+        </div>
       )}
     </div>
   );
