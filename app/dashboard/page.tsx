@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -40,12 +41,28 @@ const page = () => {
     const initializeData = async () => {
       await fetchCompanyId();
     }
+
+    initializeData();
   }, [user]);
+
+  if (loading) {
+    return(
+      <Wrapper>
+        <div className="flex justify-center items-center w-full">
+        <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      </Wrapper>
+    )
+  }
 
   return (
     <Wrapper>
       <div>
-        
+        <div>
+        <div className="badge badge-secondary badge-outline">
+          CompanyId: {companyId}
+        </div>
+        </div>
       </div>
     </Wrapper>
   );
