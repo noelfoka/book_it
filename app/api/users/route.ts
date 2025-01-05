@@ -46,10 +46,22 @@ export async function POST(request: Request) {
         });
       }
     }
-    return NextResponse.json(
-      { message: "Utilisateur creé avec succès" },
-      { status: 201 }
-    );
+    const company = await prisma.company.findFirst({
+      where: {
+        employees: {
+          some: {
+            id: user.id,
+          }
+        }
+      }
+    })
+
+    if (company) {
+      return NextResponse.json({companyId: company.id});
+    } else {
+      return NextResponse.json({message: "Nope"});
+    }
+
   } catch (error) {
     console.error("Erreur lors de la création d'un utilisateur", error);
     return NextResponse.json(
