@@ -46,6 +46,10 @@ export async function POST(request: Request) {
         });
       }
     }
+    return NextResponse.json(
+      { message: "Utilisateur creé avec succès" },
+      { status: 201 }
+    );
   } catch (error) {
     console.error("Erreur lors de la création d'un utilisateur", error);
     return NextResponse.json(
