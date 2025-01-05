@@ -5,7 +5,8 @@ import prisma from "@/lib/prisma";
 // route pour la création d'un utilisateur
 export async function POST(request: Request) {
   try {
-    
+    const {email, famillyName, givenName} = await request.json();
+
   } catch (error) {
     console.error('Erreur lors de la création d\'un utilisateur', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
