@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       );
     }
 
-    //vérificatio si l'utilisateur existe déjà dans la base de données
+    //vérification si l'utilisateur existe déjà dans la base de données
     let user = await prisma.user.findUnique({
       where: {
         email,
