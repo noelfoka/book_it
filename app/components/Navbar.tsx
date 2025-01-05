@@ -18,8 +18,9 @@ const Navbar = () => {
   });
 
   return (
-    <nav>
-      <div>
+    <div className="fixed top-0 w-full bg-white backdrop-blur-sm">
+    <nav className="md:px-[10%] p-5 border-b border-base-200 w-full bg-white">
+      <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-bold flex items-center">
             <div className="bg-secondary p-1 mr-1 rounded-md text-white">
@@ -32,6 +33,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    </div>
   );
 };
 
