@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import Notification from "../components/Notification";
 
 const page = () => {
 
@@ -12,11 +13,16 @@ const page = () => {
   // const [loading, setLoading] = useState<boolean>(true);
   const [notification, setNotification] = useState<string>("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const colseNotification = () => {
+    setNotification("");
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     
     e.preventDefault();
 
     if (!companyName) {
+      setNotification("Le nom de l'entreprise est requis");
       return;
     }
 
@@ -34,18 +40,27 @@ const page = () => {
 
       if (response.ok) {
         const message = await response.json();
-        console.log(message);
+        setNotification(message);
         return;
       }
 
+      setNotification("Entreprise créée avec succès");
+      setCompanyName("");
+
     } catch (error) {
-      console.error("Erreur lors de la création d'une entreprise", error);
+      console.error(error);
+      setNotification("Erreur interne du serveur");
     }
 
   };
 
   return (
     <Wrapper>
+
+      {notification && (
+        <Notification message={notification} onclose={colseNotification}></Notification>
+      )}
+
       <div>
         <h1 className="text-2xl mb-4">Créez une entreprise</h1>
 
