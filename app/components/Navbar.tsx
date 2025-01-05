@@ -76,6 +76,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      <div className="md:hidden shadow-lg p-4 rounded-lg space-y-4 flex flex-col mt-3"></div>
+
     </div>
   );
 };
