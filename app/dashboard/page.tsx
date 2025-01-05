@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import Wrapper from "../components/wrapper";
 
 const page = () => {
@@ -13,7 +12,6 @@ const page = () => {
     <Wrapper>
       <div>
         <div>Bienvenue {user?.given_name}</div>
-        <LogoutLink className="btn">Se déconnecter</LogoutLink>
       </div>
     </Wrapper>
   );
