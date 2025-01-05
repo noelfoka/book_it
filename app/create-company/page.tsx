@@ -1,8 +1,11 @@
 import React from 'react'
+import Wrapper from '../components/wrapper'
 
 const page = () => {
   return (
-    <div>page</div>
+    <Wrapper>
+      <div>Créer une entreprise</div>
+    </Wrapper>
   )
 }
 
