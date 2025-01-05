@@ -2,6 +2,7 @@
 
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { CalendarCheck } from "lucide-react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -43,6 +44,9 @@ const Navbar = () => {
             </div>
           )}
 
+        </div>
+        <div className="hidden md:flex items-center space-x-6">
+          <Link href={"/dashboard"}>Réserver</Link>
         </div>
       </div>
     </nav>
