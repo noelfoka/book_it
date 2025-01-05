@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-const wrapper = () => {
+type WrapperProps = {
+  children: React.ReactNode
+}
+
+const wrapper = ({children} : WrapperProps) => {
   return (
     <div>wrapper</div>
   )
