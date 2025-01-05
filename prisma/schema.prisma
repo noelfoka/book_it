@@ -17,10 +17,13 @@ model User {
   email         String   @unique
   CompanyId     String?
   company       Company? @relation("CompanyEmployees", fields: [CompanyId], references: [id])
+  createdCompany Company[] @relation("CompanyCreators")
 }
 
 model Company {
   id            String   @id @default(cuid())
   name          String   @unique
   employees     User[]   @relation("CompanyEmployees")
+  createdById   String?
+  createdBy     User?    @relation("CompanyCreators", fields: [createdById], references: [id])
 }
