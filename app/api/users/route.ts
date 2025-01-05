@@ -46,6 +46,8 @@ export async function POST(request: Request) {
         });
       }
     }
+
+    // vérification si l'utilisateur est déjà rattaché à une entreprise
     const company = await prisma.company.findFirst({
       where: {
         employees: {
@@ -56,6 +58,7 @@ export async function POST(request: Request) {
       }
     })
 
+    // si l'utilisateur est rattaché à une entreprise, on renvoie son id
     if (company) {
       return NextResponse.json({companyId: company.id});
     } else {
