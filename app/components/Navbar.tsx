@@ -1,4 +1,5 @@
 import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs';
+import { CalendarCheck } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
@@ -18,7 +19,18 @@ const Navbar = () => {
   })
 
   return (
-    <div>Navbar</div>
+    <nav>
+      <div>
+        <div>
+          <h1>
+            <div>
+            <CalendarCheck />
+            </div>
+            <span>Book<span>It</span></span>
+          </h1>
+        </div>
+      </div>
+    </nav>
   )
 }
 
