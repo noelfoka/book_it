@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client";
 
 import React, { useEffect, useState } from "react";
-import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import Wrapper from "../components/wrapper";
 
 
 const page = () => {

@@ -65,12 +65,12 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/test"
+              href="/create-company"
               className={`link link-hover font-extrabold ${
-                isActive("/test") ? "text-secondary" : ""
+                isActive("/create-company") ? "text-secondary" : ""
               }`}
             >
-              Test
+              Creez une entreprise
             </Link>
           </div>
 
@@ -98,12 +98,12 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/test"
+            href="/create-company"
             className={`link link-hover font-extrabold ${
-              isActive("/test") ? "text-secondary" : ""
+              isActive("/create-company") ? "text-secondary" : ""
             }`}
           >
-            Test
+            Creez une entreprise
           </Link>
 
           <LogoutLink className="btn btn-secondary btn-sm">
