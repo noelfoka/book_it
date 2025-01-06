@@ -6,6 +6,7 @@ import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Notification from "../components/Notification";
 import Link from "next/link";
+import { Trash2 } from "lucide-react";
 
 export interface Company {
   id: string;
@@ -127,12 +128,15 @@ const page = () => {
         ) : companies && companies.length > 0 ? (
           <ul className="list-decimal divide-base-200 divide-y">
             {companies.map((company) => (
-              <li key={company.id}>
+              <li key={company.id} className="py-4 flex flex-col md:flex-row md:items-center justify-between">
                 <div className="badge badge-secondary badge-outline mb-2 md:mb-0">{company.name}</div>
 
                 <div className="flex items-center">
                   <Link href={`employees/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des employés</Link>
                   <Link href={`rooms/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des salles</Link>
+                  <button className="btn btn-sm">
+                  <Trash2 />
+                  </button>
                 </div>
               </li>
             ))}
