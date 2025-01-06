@@ -96,6 +96,19 @@ export async function GET(request: Request) {
         { status: 404 }
       );
     }
+
+    // Récupération des entreprises de l'utilisateur
+    const companies = await prisma.company.findMany({
+      where: {
+        createdById: user.id
+      }
+    })
+
+    // une fois les entreprises récupérées, on les retourne à notre front end
+    return NextResponse.json(
+      {companies},
+      { status: 200 }
+    );
     
   } catch (error) {
     console.error("Error getting companies", error);
