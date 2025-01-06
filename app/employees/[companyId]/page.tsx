@@ -9,6 +9,7 @@ const page = ({params} : {params: {companyId: string}}) => {
   const { user } = useKindeBrowserClient();
 
   const [employeeEmail, setEmployeeEmail] = useState<string>('');
+  const [companyName, setCompanyName] = useState<string>('');
 
   return (
     <div>{params.companyId}</div>
