@@ -84,7 +84,14 @@ const page = () => {
 
   // Suppression d'une entreprise
   const handleDelete = async (companyId: string) => {
-    if (confirm("Êtes-vous sûr de vouloir supprimer cette entreprise ?")) {}
+    if (confirm("Êtes-vous sûr de vouloir supprimer cette entreprise ?")) {
+      try {
+        
+      } catch (error) {
+        console.error(error);
+      setNotification("Erreur lors de la supression de l'entreprise");
+      }
+    }
   };
 
   useEffect(() => {
