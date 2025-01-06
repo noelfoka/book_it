@@ -14,7 +14,6 @@ export interface Company {
 }
 
 const page = () => {
-
   const { user } = useKindeBrowserClient();
   const [companyName, setCompanyName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -23,10 +22,9 @@ const page = () => {
   const [notification, setNotification] = useState<string>("");
   const colseNotification = () => {
     setNotification("");
-  }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    
     e.preventDefault();
 
     if (!companyName) {
@@ -38,12 +36,12 @@ const page = () => {
       const response = await fetch("/api/companies", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: user?.email,
-          companyName: companyName
-        })
+          companyName: companyName,
+        }),
       });
 
       if (response.ok) {
@@ -54,26 +52,23 @@ const page = () => {
 
       setNotification("Entreprise créée avec succès");
       setCompanyName("");
-
     } catch (error) {
       console.error(error);
       setNotification("Erreur interne du serveur");
     }
-
   };
 
   // Récupération des données de l'entreprise
   const fetchCompanies = async () => {
     try {
-
       if (user?.email) {
         const response = await fetch(`/api/companies?email=${user.email}`, {
-          method: "GET"
+          method: "GET",
         });
 
-        if(!response.ok) {
+        if (!response.ok) {
           // si la réponse n'est pas ok, on affiche une notification
-          const {message} = await response.json();
+          const { message } = await response.json();
           throw new Error(message);
         }
 
@@ -81,32 +76,28 @@ const page = () => {
         setCompanies(data.companies);
         setLoading(false);
       }
-      
     } catch (error) {
       console.error(error);
       setNotification("Erreur lors de la récupération des entreprises");
     }
-  }
+  };
 
   // Suppression d'une entreprise
   const handleDelete = async (companyId: string) => {
-    try {
-      
-    } catch (error) {
-      console.error(error);
-      setNotification("Erreur lors de la supression de l'entreprises");
-    }
-  }
+    if (confirm("Êtes-vous sûr de vouloir supprimer cette entreprise ?")) {}
+  };
 
   useEffect(() => {
     fetchCompanies();
-  }, [user])
+  }, [user]);
 
   return (
     <Wrapper>
-
       {notification && (
-        <Notification message={notification} onclose={colseNotification}></Notification>
+        <Notification
+          message={notification}
+          onclose={colseNotification}
+        ></Notification>
       )}
 
       <div>
@@ -124,8 +115,9 @@ const page = () => {
               className="input input-bordered w-full max-w-xs"
             />
 
-            <button type="submit" className="btn btn-secondary ml-2">Créez l&apos;entreprise</button>
-
+            <button type="submit" className="btn btn-secondary ml-2">
+              Créez l&apos;entreprise
+            </button>
           </div>
         </form>
 
@@ -138,14 +130,32 @@ const page = () => {
         ) : companies && companies.length > 0 ? (
           <ul className="list-decimal divide-base-200 divide-y">
             {companies.map((company) => (
-              <li key={company.id} className="py-4 flex flex-col md:flex-row md:items-center justify-between">
-                <div className="badge badge-secondary badge-outline mb-2 md:mb-0">{company.name}</div>
+              <li
+                key={company.id}
+                className="py-4 flex flex-col md:flex-row md:items-center justify-between"
+              >
+                <div className="badge badge-secondary badge-outline mb-2 md:mb-0">
+                  {company.name}
+                </div>
 
                 <div className="flex items-center">
-                  <Link href={`employees/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des employés</Link>
-                  <Link href={`rooms/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des salles</Link>
-                  <button className="btn btn-sm">
-                  <Trash2 className="w-4" />
+                  <Link
+                    href={`employees/${company.id}`}
+                    className="btn btn-sm mr-2 btn-outline btn-secondary"
+                  >
+                    Ajouter des employés
+                  </Link>
+                  <Link
+                    href={`rooms/${company.id}`}
+                    className="btn btn-sm mr-2 btn-outline btn-secondary"
+                  >
+                    Ajouter des salles
+                  </Link>
+                  <button
+                    className="btn btn-sm"
+                    onClick={() => handleDelete(company.id)}
+                  >
+                    <Trash2 className="w-4" />
                   </button>
                 </div>
               </li>
@@ -154,7 +164,6 @@ const page = () => {
         ) : (
           <p>Aucune entreprise trouvée</p>
         )}
-
       </div>
     </Wrapper>
   );
