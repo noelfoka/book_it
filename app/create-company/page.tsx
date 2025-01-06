@@ -132,6 +132,7 @@ const page = () => {
 
                 <div className="flex items-center">
                   <Link href={`employees/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des employés</Link>
+                  <Link href={`rooms/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des salles</Link>
                 </div>
               </li>
             ))}
