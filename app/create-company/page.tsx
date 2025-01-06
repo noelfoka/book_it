@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Notification from "../components/Notification";
@@ -85,6 +85,10 @@ const page = () => {
       setNotification("Erreur lors de la récupération des entreprises");
     }
   }
+
+  useEffect(() => {
+    fetchCompanies();
+  }, [user])
 
   return (
     <Wrapper>
