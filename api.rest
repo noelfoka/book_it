@@ -30,3 +30,15 @@ Content-Type: application/json
 {
   "id": "cm5jj2t1s0003viuoe6q4i2r4"
 }
+
+###
+
+PATCH  http://localhost:3000/api/companies
+Content-Type: application/json
+
+{ 
+  "id": "cm5krffkd0002vif0lgb9c481", 
+  "creatorEmail": "nomgnenoel@gmail.com", 
+  "employeeEmail": "test@test.com", 
+  "action": "ADD" 
+}
