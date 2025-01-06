@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import Wrapper from "../../components/Wrapper";
+import Wrapper from "@/app/components/Wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import React, { useState } from "react";
 import Notification from "../../components/Notification";
@@ -26,6 +26,17 @@ const page = ({ params }: { params: { companyId: string } }) => {
           onclose={colseNotification}
         ></Notification>
       )}
+
+      <div>
+        { loading ? (
+          <div className="text-center mt-32">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        ) : (
+          <div></div>
+        ) }
+      </div>
+
     </Wrapper>
   );
 };
