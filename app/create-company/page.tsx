@@ -15,7 +15,7 @@ const page = () => {
 
   const { user } = useKindeBrowserClient();
   const [companyName, setCompanyName] = useState<string>("");
-  // const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
   const [companies, setCompanies] = useState<Company[] | null>(null);
 
   const [notification, setNotification] = useState<string>("");
@@ -76,6 +76,8 @@ const page = () => {
         }
 
         const data = await response.json();
+        setCompanies(data.companies);
+        setLoading(false);
       }
       
     } catch (error) {
