@@ -28,15 +28,27 @@ const page = ({ params }: { params: { companyId: string } }) => {
       )}
 
       <div>
-        { loading ? (
+        {/* loading ? (
           <div className="text-center mt-32">
             <span className="loading loading-spinner loading-lg"></span>
           </div>
-        ) : (
-          <div></div>
-        ) }
-      </div>
+        ) : (*/}
+        <div>
+          <h1 className="text-2xl mb-4">Ajouter un nouvel employé</h1>
 
+          <form>
+            <div className="mb-4 flex flex-row">
+              <input
+                type="email"
+                value={employeeEmail}
+                onChange={(e) => setEmployeeEmail(e.target.value)}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+          </form>
+        </div>
+        {/* )} */}
+      </div>
     </Wrapper>
   );
 };
