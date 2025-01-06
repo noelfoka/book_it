@@ -36,6 +36,14 @@ const page = ({ params }: { params: { companyId: string } }) => {
       });
 
       const data = await response.json();
+
+      if (response.ok) {
+        setNotification("Employé ajouté avec succès");
+        return;
+      } else {
+        setNotification(data.message);
+      }
+
     } catch (error) {
       console.error(error);
       setNotification("Erreur interne du serveur");
