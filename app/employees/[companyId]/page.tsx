@@ -18,7 +18,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
     setNotification("");
   };
 
-  const handleAddEmployee = async (e: React.FormEvent) => {};
+  const handleAddEmployee = async (e: React.FormEvent) => {
+    e.preventDefault();
+  };
 
   return (
     <Wrapper>
