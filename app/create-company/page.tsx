@@ -88,6 +88,16 @@ const page = () => {
     }
   }
 
+  // Suppression d'une entreprise
+  const handleDelete = async () => {
+    try {
+      
+    } catch (error) {
+      console.error(error);
+      setNotification("Erreur lors de la supression de l'entreprises");
+    }
+  }
+
   useEffect(() => {
     fetchCompanies();
   }, [user])
