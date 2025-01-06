@@ -41,7 +41,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
         setNotification("Employé ajouté avec succès");
         return;
       } else {
-        setNotification(data.message);
+        setNotification(`${data.message}`);
       }
 
     } catch (error) {
