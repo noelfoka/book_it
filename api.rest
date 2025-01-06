@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
   "email": "nomgnenoel@gmail.com",
-  "companyName": "Saas Book It"
+  "companyName": "Numerical Book It"
 
 }
 
