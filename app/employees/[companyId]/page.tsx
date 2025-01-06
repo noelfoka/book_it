@@ -20,18 +20,26 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
   const handleAddEmployee = async (e: React.FormEvent) => {
     e.preventDefault();
-    const response = await fetch("/api/companies", {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: params.companyId,
-        employeeEmail: employeeEmail,
-        creatorEmail: user?.email,
-        action: "ADD",
-      })
-    })
+
+    try {
+      const response = await fetch("/api/companies", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: params.companyId,
+          employeeEmail: employeeEmail,
+          creatorEmail: user?.email,
+          action: "ADD",
+        }),
+      });
+
+      const data = await response.json();
+    } catch (error) {
+      console.error(error);
+      setNotification("Erreur interne du serveur");
+    }
   };
 
   return (
@@ -62,7 +70,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
                 required
                 placeholder="Email de l'employé"
               />
-              <button type="submit" className="btn btn-secondary ml-2">Ajouter un employé</button>
+              <button type="submit" className="btn btn-secondary ml-2">
+                Ajouter un employé
+              </button>
             </div>
           </form>
         </div>
