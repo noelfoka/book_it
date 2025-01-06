@@ -222,6 +222,14 @@ export async function PATCH(request: Request) {
         );
       }
 
+      // eviter d'ajouter un employé d'un entreprise à une autre entreprise
+      if (employee?.CompanyId && employee.CompanyId !== Company.id) {
+        return NextResponse.json(
+          { message: "Cet employé est déjà associé à une autre entreprise" },
+          { status: 400 }
+        );
+      }
+
     } else if (action === "DELETE") {
 
     } else {}
