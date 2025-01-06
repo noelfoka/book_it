@@ -208,7 +208,7 @@ export async function PATCH(request: Request) {
       // ajouter un employé à la companie
 
       // Vérifier si l'utilisateur existe déjà dans la base de données
-      const employee = await prisma.user.findUnique({
+      let employee = await prisma.user.findUnique({
         where: {
           email: employeeEmail
         }
@@ -263,7 +263,7 @@ export async function PATCH(request: Request) {
 
       return NextResponse.json(
         { message: "Employé ajouté avec succès" },
-        { status: 200 }
+        { status: 201 }
       );
 
     } else if (action === "DELETE") {
