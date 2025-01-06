@@ -54,6 +54,16 @@ const page = () => {
 
   };
 
+  // Récupération des données de l'entreprise
+  const fetchCompanies = async () => {
+    try {
+      
+    } catch (error) {
+      console.error(error);
+      setNotification("Erreur lors de la récupération des entreprises");
+    }
+  }
+
   return (
     <Wrapper>
 
