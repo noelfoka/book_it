@@ -278,7 +278,13 @@ export async function PATCH(request: Request) {
       })
 
       // vérifier si l'employé existe
-      if (!employee) {}
+
+      if (!employee) {
+        return NextResponse.json(
+          { message: "Employé non trouvé" },
+          { status: 404 }
+        );
+      }
     } else {}
 
   } catch (error) {
