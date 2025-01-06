@@ -165,6 +165,24 @@ export async function DELETE(request: Request) {
 // Api pour ajouter et supprimer un employé à une entreprise
 export async function PATCH(request: Request) {
   try {
+
+    // Extraire les données du corp de la requête
+    const { id, creatorEmail, employeeEmail, action } = await request.json();
+
+    // Vérifier l'existence de l'utilisateur créateur
+    const creator = await prisma.user.findUnique({
+      where: {
+        email: creatorEmail
+      }
+    })
+
+    if (!creator) {
+      return NextResponse.json(
+        { message: "Createur non trouvé" },
+        { status: 404 }
+      );
+    }
+
   } catch (error) {
     console.error("Error getting companies", error);
     return NextResponse.json(
