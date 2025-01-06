@@ -43,7 +43,10 @@ const page = ({ params }: { params: { companyId: string } }) => {
                 value={employeeEmail}
                 onChange={(e) => setEmployeeEmail(e.target.value)}
                 className="input input-bordered w-full max-w-xs"
+                required
+                placeholder="Email de l'employé"
               />
+              <button type="submit" className="btn btn-secondary ml-2">Ajouter un employé</button>
             </div>
           </form>
         </div>
