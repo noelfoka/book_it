@@ -71,6 +71,10 @@ export async function POST(request: Request) {
 // route pour afficher les entreprises
 export async function GET(request: Request) {
   try {
+
+    // récupération des paramètres de la requête
+    const { searchParams } = new URL(request.url);
+    const email = searchParams.get("email");
     
   } catch (error) {
     console.error("Error getting companies", error);
