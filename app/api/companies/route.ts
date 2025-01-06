@@ -230,6 +230,42 @@ export async function PATCH(request: Request) {
         );
       }
 
+      // creer l'employé s'il n'existe pas
+      if (!employee) {
+        employee = await prisma.user.create({
+          data: {
+            email: employeeEmail,
+            CompanyId: Company.id
+          }
+        });
+      } else {
+        await prisma.user.update({
+          where: {
+            id: employee.id
+          },
+          data: {
+            CompanyId: Company.id
+          }
+        })
+      }
+
+      // mettre à jour la liste des employés dans companie
+      await prisma.company.update({
+        where: {id: Company.id},
+        data: {
+          employees: {
+            connect: {
+              id: employee.id
+            }
+          }
+        }
+      })
+
+      return NextResponse.json(
+        { message: "Employé ajouté avec succès" },
+        { status: 200 }
+      );
+
     } else if (action === "DELETE") {
 
     } else {}
