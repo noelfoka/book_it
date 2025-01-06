@@ -88,6 +88,14 @@ export async function GET(request: Request) {
     const user = await prisma.user.findUnique({
       where: {email}
     })
+
+    // Vérifier si l'utilisateur existe
+    if(!user) {
+      return NextResponse.json(
+        { message: "Utilisateur non trouvé" },
+        { status: 404 }
+      );
+    }
     
   } catch (error) {
     console.error("Error getting companies", error);
