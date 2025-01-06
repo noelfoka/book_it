@@ -127,7 +127,7 @@ const page = () => {
           <ul className="list-decimal divide-base-200 divide-y">
             {companies.map((company) => (
               <li key={company.id}>
-                {company.name}
+                <div className="badge badge-secondary badge-outline">{company.name}</div>
               </li>
             ))}
           </ul>
