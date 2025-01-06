@@ -124,6 +124,22 @@ export async function DELETE(request: Request) {
   try {
     // Extraire l'id de l'entreprise à supprimer
     const { id } = await request.json();
+
+    // Vérifier si l'entreprise existe
+    const company = await prisma.company.findUnique({
+      where: {
+        id
+      }
+    })
+
+    // Vérifier si l'entreprise existe
+    if (!company) {
+      return NextResponse.json(
+        { message: "Entreprise non trouvée" },
+        { status: 404 }
+      );
+    }
+
   } catch (error) {
     console.error("Error getting companies", error);
     return NextResponse.json(
