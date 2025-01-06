@@ -6,13 +6,19 @@ import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Notification from "../components/Notification";
 
+export interface Company {
+  id: string;
+  name: string;
+}
+
 const page = () => {
 
   const { user } = useKindeBrowserClient();
   const [companyName, setCompanyName] = useState<string>("");
   // const [loading, setLoading] = useState<boolean>(true);
-  const [notification, setNotification] = useState<string>("");
+  const [companies, setCompanies] = useState<Company[] | null>(null);
 
+  const [notification, setNotification] = useState<string>("");
   const colseNotification = () => {
     setNotification("");
   }
@@ -62,6 +68,14 @@ const page = () => {
         const response = await fetch(`/api/companies?email=${user.email}`, {
           method: "GET"
         });
+
+        if(!response.ok) {
+          // si la réponse n'est pas ok, on affiche une notification
+          const {message} = await response.json();
+          throw new Error(message);
+        }
+
+        const data = await response.json();
       }
       
     } catch (error) {
