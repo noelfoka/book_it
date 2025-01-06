@@ -89,7 +89,7 @@ const page = () => {
   }
 
   // Suppression d'une entreprise
-  const handleDelete = async () => {
+  const handleDelete = async (companyId: string) => {
     try {
       
     } catch (error) {
