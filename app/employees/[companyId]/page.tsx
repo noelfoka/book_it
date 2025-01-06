@@ -44,6 +44,8 @@ const page = ({ params }: { params: { companyId: string } }) => {
         setNotification(`${data.message}`);
       }
 
+      setEmployeeEmail('');
+
     } catch (error) {
       console.error(error);
       setNotification("Erreur interne du serveur");
