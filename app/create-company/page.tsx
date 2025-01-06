@@ -57,6 +57,12 @@ const page = () => {
   // Récupération des données de l'entreprise
   const fetchCompanies = async () => {
     try {
+
+      if (user?.email) {
+        const response = await fetch(`/api/companies?email=${user.email}`, {
+          method: "GET"
+        });
+      }
       
     } catch (error) {
       console.error(error);
