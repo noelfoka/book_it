@@ -199,10 +199,16 @@ export async function PATCH(request: Request) {
     // Vérifier que le createur est bien celui qui a créé la companie
     if (creator.id !== Company.createdById) {
       return NextResponse.json(
-        { message: "Vous n'avez pas les droits pour cette entreprise" },
+        { message: "Vous n'avez pas les droits pour cette entreprise ou vous n'est pas le créateur de l'entreprise" },
         { status: 403 }
       );
     }
+
+    if (action === "add") {
+
+    } else if (action === "remove") {
+
+    } else {}
 
   } catch (error) {
     console.error("Error getting companies", error);
