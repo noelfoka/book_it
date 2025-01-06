@@ -140,6 +140,28 @@ export async function DELETE(request: Request) {
       );
     }
 
+    // si l'entreprise existe, déconnecter les utilisateurs associés à l'entreprise
+    await prisma.user.updateMany({
+      where: {
+        CompanyId: id
+      },
+      data: {
+        CompanyId: null
+      }
+    })
+
+    // supprimer l'entreprise
+    await prisma.company.delete({
+      where: {
+        id
+      }
+    })
+
+    return NextResponse.json(
+      { message: "Entreprise supprimée avec succès" },
+      { status: 200 }
+    );
+
   } catch (error) {
     console.error("Error getting companies", error);
     return NextResponse.json(
