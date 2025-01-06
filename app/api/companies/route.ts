@@ -1,4 +1,3 @@
-import { Company } from './../../create-company/page';
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
@@ -204,9 +203,25 @@ export async function PATCH(request: Request) {
       );
     }
 
-    if (action === "add") {
+    // Ajouter ou supprimer un employé à une entreprise
+    if (action === "ADD") {
+      // ajouter un employé à la companie
 
-    } else if (action === "remove") {
+      // Vérifier si l'utilisateur existe déjà dans la base de données
+      const employee = await prisma.user.findUnique({
+        where: {
+          email: employeeEmail
+        }
+      });
+
+      if (!employee) {
+        return NextResponse.json(
+          { message: "Employé non trouvé" },
+          { status: 404 }
+        );
+      }
+
+    } else if (action === "DELETE") {
 
     } else {}
 
