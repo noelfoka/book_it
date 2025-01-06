@@ -1,6 +1,15 @@
-import React from 'react'
+/* eslint-disable react-hooks/rules-of-hooks */
+"use client";
+
+import { useKindeBrowserClient } from '@kinde-oss/kinde-auth-nextjs'
+import React, { useState } from 'react'
 
 const page = ({params} : {params: {companyId: string}}) => {
+
+  const { user } = useKindeBrowserClient();
+
+  const [employeeEmail, setEmployeeEmail] = useState<string>('');
+
   return (
     <div>{params.companyId}</div>
   )
