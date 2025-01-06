@@ -69,3 +69,14 @@ export async function POST(request: Request) {
 }
 
 // route pour afficher les entreprises
+export async function GET(request: Request) {
+  try {
+    
+  } catch (error) {
+    console.error("Error getting companies", error);
+    return NextResponse.json(
+      { message: "Internal Server Error" },
+      { status: 500 }
+    );
+  }
+}
