@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
-import Wrapper from "../components/wrapper";
+import Wrapper from "../components/Wrapper";
 
 
 const page = () => {

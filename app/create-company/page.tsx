@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Wrapper from "../components/wrapper";
+import Wrapper from "../components/Wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Notification from "../components/Notification";
 import Link from "next/link";
@@ -51,6 +51,7 @@ const page = () => {
       }
 
       setNotification("Entreprise créée avec succès");
+      fetchCompanies();
       setCompanyName("");
     } catch (error) {
       console.error(error);
@@ -115,7 +116,7 @@ const page = () => {
 
   useEffect(() => {
     fetchCompanies();
-  }, [user]);
+  });
 
   return (
     <Wrapper>
