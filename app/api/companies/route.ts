@@ -268,6 +268,17 @@ export async function PATCH(request: Request) {
 
     } else if (action === "DELETE") {
 
+      // supprimer un employé de la companie
+
+      // Vérifier si l'utilisateur existe déjà dans la base de données
+      let employee = await prisma.user.findUnique({
+        where: {
+          email: employeeEmail
+        }
+      })
+
+      // vérifier si l'employé existe
+      if (!employee) {}
     } else {}
 
   } catch (error) {
