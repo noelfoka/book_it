@@ -196,6 +196,14 @@ export async function PATCH(request: Request) {
       );
     }
 
+    // Vérifier que le createur est bien celui qui a créé la companie
+    if (creator.id !== Company.createdById) {
+      return NextResponse.json(
+        { message: "Vous n'avez pas les droits pour cette entreprise" },
+        { status: 403 }
+      );
+    }
+
   } catch (error) {
     console.error("Error getting companies", error);
     return NextResponse.json(
