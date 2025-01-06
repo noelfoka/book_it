@@ -75,6 +75,14 @@ export async function GET(request: Request) {
     // récupération des paramètres de la requête
     const { searchParams } = new URL(request.url);
     const email = searchParams.get("email");
+
+    // Vérifier si l'email est fourni
+    if (!email) {
+      return NextResponse.json(
+        { message: "l'email est requis" },
+        { status: 400 }
+      );
+    }
     
   } catch (error) {
     console.error("Error getting companies", error);
