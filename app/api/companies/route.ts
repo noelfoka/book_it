@@ -122,7 +122,8 @@ export async function GET(request: Request) {
 // Api pour supprimer une entreprise
 export async function DELETE(request: Request) {
   try {
-    
+    // Extraire l'id de l'entreprise à supprimer
+    const { id } = await request.json();
   } catch (error) {
     console.error("Error getting companies", error);
     return NextResponse.json(
