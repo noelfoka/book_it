@@ -112,6 +112,17 @@ const page = () => {
 
           </div>
         </form>
+
+        <h1 className="text-2xl my-4 font-bold">Mes entreprises</h1>
+
+        {loading ? (
+          <div className="text-center mt-32">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        ) : (
+
+        )}
+
       </div>
     </Wrapper>
   );
