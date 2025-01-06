@@ -214,10 +214,11 @@ export async function PATCH(request: Request) {
         }
       });
 
-      if (!employee) {
+      // vérifier si la companie est associée à un employé
+      if (employee?.CompanyId === Company.id) {
         return NextResponse.json(
-          { message: "Employé non trouvé" },
-          { status: 404 }
+          { message: `${employeeEmail} est déjà associé à cette entreprise` },
+          { status: 400 }
         );
       }
 
