@@ -165,16 +165,15 @@ export async function DELETE(request: Request) {
 // Api pour ajouter et supprimer un employé à une entreprise
 export async function PATCH(request: Request) {
   try {
-
     // Extraire les données du corp de la requête
     const { id, creatorEmail, employeeEmail, action } = await request.json();
 
     // Vérifier l'existence de l'utilisateur créateur
     const creator = await prisma.user.findUnique({
       where: {
-        email: creatorEmail
-      }
-    })
+        email: creatorEmail,
+      },
+    });
 
     if (!creator) {
       return NextResponse.json(
@@ -185,8 +184,8 @@ export async function PATCH(request: Request) {
 
     // Vérifier si la companie identidié par l'id ixiste
     const Company = await prisma.company.findUnique({
-      where: {id}
-    })
+      where: { id },
+    });
 
     if (!Company) {
       return NextResponse.json(
@@ -198,7 +197,10 @@ export async function PATCH(request: Request) {
     // Vérifier que le createur est bien celui qui a créé la companie
     if (creator.id !== Company.createdById) {
       return NextResponse.json(
-        { message: "Vous n'avez pas les droits pour cette entreprise ou vous n'est pas le créateur de l'entreprise" },
+        {
+          message:
+            "Vous n'avez pas les droits pour cette entreprise ou vous n'est pas le créateur de l'entreprise",
+        },
         { status: 403 }
       );
     }
@@ -210,8 +212,8 @@ export async function PATCH(request: Request) {
       // Vérifier si l'utilisateur existe déjà dans la base de données
       let employee = await prisma.user.findUnique({
         where: {
-          email: employeeEmail
-        }
+          email: employeeEmail,
+        },
       });
 
       // vérifier si la companie est associée à un employé
@@ -235,47 +237,45 @@ export async function PATCH(request: Request) {
         employee = await prisma.user.create({
           data: {
             email: employeeEmail,
-            CompanyId: Company.id
-          }
+            CompanyId: Company.id,
+          },
         });
       } else {
         await prisma.user.update({
           where: {
-            id: employee.id
+            id: employee.id,
           },
           data: {
-            CompanyId: Company.id
-          }
-        })
+            CompanyId: Company.id,
+          },
+        });
       }
 
       // mettre à jour la liste des employés dans companie
       await prisma.company.update({
-        where: {id: Company.id},
+        where: { id: Company.id },
         data: {
           employees: {
             connect: {
-              id: employee.id
-            }
-          }
-        }
-      })
+              id: employee.id,
+            },
+          },
+        },
+      });
 
       return NextResponse.json(
         { message: "Employé ajouté avec succès" },
         { status: 201 }
       );
-
     } else if (action === "DELETE") {
-
       // supprimer un employé de la companie
 
       // Vérifier si l'utilisateur existe déjà dans la base de données
-      let employee = await prisma.user.findUnique({
+      const employee = await prisma.user.findUnique({
         where: {
-          email: employeeEmail
-        }
-      })
+          email: employeeEmail,
+        },
+      });
 
       // vérifier si l'employé existe
 
@@ -285,7 +285,23 @@ export async function PATCH(request: Request) {
           { status: 404 }
         );
       }
-    } else {}
+
+      // suprimer l'employé de la companie s'il existe
+      await prisma.company.update({
+        where: {
+          id: Company.id,
+        },
+        data: {
+          employees: {
+            disconnect: { id: employee.id },
+          },
+        },
+      });
+
+      return NextResponse.json("L'employé a bien été supprimé de la companie", {
+        status: 200,
+      });
+    } 
 
   } catch (error) {
     console.error("Error getting companies", error);
