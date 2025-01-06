@@ -119,8 +119,16 @@ const page = () => {
           <div className="text-center mt-32">
             <span className="loading loading-spinner loading-lg"></span>
           </div>
+        ) : companies && companies.length > 0 ? (
+          <ul className="list-decimal divide-base-200 divide-y">
+            {companies.map((company) => (
+              <li key={company.id}>
+                {company.name}
+              </li>
+            ))}
+          </ul>
         ) : (
-
+          <p>Aucune entreprise trouvée</p>
         )}
 
       </div>
