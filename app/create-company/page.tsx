@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Wrapper from "../components/wrapper";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Notification from "../components/Notification";
+import Link from "next/link";
 
 export interface Company {
   id: string;
@@ -127,7 +128,11 @@ const page = () => {
           <ul className="list-decimal divide-base-200 divide-y">
             {companies.map((company) => (
               <li key={company.id}>
-                <div className="badge badge-secondary badge-outline">{company.name}</div>
+                <div className="badge badge-secondary badge-outline mb-2 md:mb-0">{company.name}</div>
+
+                <div className="flex items-center">
+                  <Link href={`employees/${company.id}`} className="btn btn-sm mr-2 btn-outline btn-secondary">Ajouter des employés</Link>
+                </div>
               </li>
             ))}
           </ul>
