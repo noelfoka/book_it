@@ -1,3 +1,4 @@
+import { Company } from './../../create-company/page';
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
@@ -179,6 +180,18 @@ export async function PATCH(request: Request) {
     if (!creator) {
       return NextResponse.json(
         { message: "Createur non trouvé" },
+        { status: 404 }
+      );
+    }
+
+    // Vérifier si la companie identidié par l'id ixiste
+    const Company = await prisma.company.findUnique({
+      where: {id}
+    })
+
+    if (!Company) {
+      return NextResponse.json(
+        { message: "Entreprise non trouvée" },
         { status: 404 }
       );
     }
