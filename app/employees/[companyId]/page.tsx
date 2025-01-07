@@ -57,6 +57,13 @@ const page = ({ params }: { params: { companyId: string } }) => {
     try {
 
       const response = await fetch(`/api/employees?companyId=${params.companyId}`);
+
+      // Vérifier si la réponse est ok
+      if (!response.ok) {
+        const { message } = await response.json();
+        setNotification(message);
+        return;
+      }
       
     } catch (error) {
       console.error(error);
