@@ -54,7 +54,7 @@ export async function GET(request: Request) {
         employees: formattedEmployees, 
         companyName: company?.name 
       },
-      { status: 500 }
+      { status: 200 }
     );
     
   } catch (error) {
