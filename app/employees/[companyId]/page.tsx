@@ -77,6 +77,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
       // definir la liste des employés
       setEmployees(data.employees);
+
+      // Définir la valeur de l'entreprise
+      setCompanyName(data.companyName);
       
     } catch (error) {
       console.error(error);
