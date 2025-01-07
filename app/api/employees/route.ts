@@ -9,14 +9,14 @@ export async function GET(request: Request) {
     // récupération des paramètres de la requête
     const { searchParams } = new URL(request.url);
 
-    //extraction des paramètres de la requête
+    // extraction des paramètres de la requête
     const companyId = searchParams.get("companyId");
 
-    //Vérifier si l'id de l'entreprise est fourni
+    // Vérifier si l'id de l'entreprise est fourni
     if (!companyId) {
       return NextResponse.json(
         { message: "l'id de l'entreprise est requis" },
-        { status: 500 }
+        { status: 400 }
       );
     }
     
