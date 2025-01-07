@@ -32,6 +32,16 @@ export async function GET(request: Request) {
         famillyName: true
       }
     })
+
+    // récuperer le nom de l'entreprise
+    const company = await prisma.company.findUnique({
+      where: {
+        id: companyId
+      },
+      select: {
+        name: true
+      }
+    })
     
   } catch (error) {
     console.error("Error getting companies", error);
