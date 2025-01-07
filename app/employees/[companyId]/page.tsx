@@ -74,6 +74,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
       // si la réponse est ok, récupérer les employés de l'entreprise
       const data = await response.json();
+
+      //definir la liste des employés
+      setEmployees(data.employees);
       
     } catch (error) {
       console.error(error);
