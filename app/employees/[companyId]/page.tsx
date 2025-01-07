@@ -60,10 +60,12 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
       // Vérifier si la réponse est ok
       if (!response.ok) {
-        const { message } = await response.json();
-        setNotification(message);
-        return;
+        const data = await response.json();
+        throw new Error(data.message);
       }
+
+      // si la réponse est ok, récupérer les employés de l'entreprise
+      const data = await response.json();
       
     } catch (error) {
       console.error(error);
