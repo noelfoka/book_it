@@ -11,6 +11,14 @@ export async function GET(request: Request) {
 
     //extraction des paramètres de la requête
     const companyId = searchParams.get("companyId");
+
+    //Vérifier si l'id de l'entreprise est fourni
+    if (!companyId) {
+      return NextResponse.json(
+        { message: "l'id de l'entreprise est requis" },
+        { status: 500 }
+      );
+    }
     
   } catch (error) {
     console.error("Error getting companies", error);
