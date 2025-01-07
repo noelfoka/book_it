@@ -19,7 +19,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
   const [employeeEmail, setEmployeeEmail] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
-  const [employees, setEmployees] = useState<Employee[] | null>(null);
+  const [employees, setEmployees] = useState<Employee[]>([]);
 
   const [notification, setNotification] = useState<string>("");
   const colseNotification = () => {
@@ -95,6 +95,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
   return (
     <Wrapper>
+
       {notification && (
         <Notification
           message={notification}
@@ -129,6 +130,33 @@ const page = ({ params }: { params: { companyId: string } }) => {
           </form>
 
           <h1 className="text-2xl mb-4">Liste des employés</h1>
+
+          {/* Tableau des employés */}
+          <div className="mt-4">
+  {employees.length > 0 ? (
+    <ol className="divide-base-200 divide-y">
+      {employees.map((employee) => {
+        const hasFullName = employee.givenName && employee.famillyName;
+        return (
+          <li
+            key={employee.id}
+            className="py-4 flex flex-col md:flex-row items-start justify-between md:items-center"
+          >
+            <div className="flex items-center md:mb-0">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+              </span>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  ) : (
+    <p>Aucun employé trouvé</p>
+  )}
+</div>
+
 
 
         </div>
