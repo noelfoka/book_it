@@ -21,7 +21,7 @@ export async function GET(request: Request) {
     }
 
     // Récupération des employés de l'entreprise
-    const emplpoyees = await prisma.user.findMany({
+    const employees = await prisma.user.findMany({
       where: {
         CompanyId: companyId
       },
@@ -42,6 +42,13 @@ export async function GET(request: Request) {
         name: true
       }
     })
+
+    const formattedEmployees = employees.map((employee) => ({
+      id: employee.id,
+      email: employee.email,
+      givenName: employee.givenName,
+      famillyName: employee.famillyName
+    }))
     
   } catch (error) {
     console.error("Error getting companies", error);
