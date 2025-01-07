@@ -143,10 +143,14 @@ const page = ({ params }: { params: { companyId: string } }) => {
             className="py-4 flex flex-col md:flex-row items-start justify-between md:items-center"
           >
             <div className="flex items-center md:mb-0">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+              <span className={`relative flex h-3 w-3 mr-2 rounded-full ${hasFullName ? "bg-green-500" : "bg-red-500"}`}>
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 ${hasFullName ? "bg-green-500" : "bg-red-500"}`}></span>
+                <span className={`relative inline-flex rounded-full h-3 w-3`}></span>
               </span>
+
+              <div>
+                <span className="font-bold">{employee.email}</span>
+              </div>
             </div>
           </li>
         );
