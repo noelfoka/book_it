@@ -54,3 +54,8 @@ Content-Type: application/json
   "employeeEmail": "test@test.com", 
   "action": "DELETE" 
 }
+
+###
+
+GET http://localhost:3000/api/employees?companyId=cm5kpg72e0005viuorj31oanr
+
