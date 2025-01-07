@@ -19,6 +19,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
   const [employeeEmail, setEmployeeEmail] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [employees, setEmployees] = useState<Employee[] | null>(null);
 
   const [notification, setNotification] = useState<string>("");
   const colseNotification = () => {
