@@ -127,6 +127,10 @@ const page = ({ params }: { params: { companyId: string } }) => {
               </button>
             </div>
           </form>
+
+          <h1 className="text-2xl mb-4">Liste des employés</h1>
+
+
         </div>
          )} 
       </div>
