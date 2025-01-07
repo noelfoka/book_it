@@ -5,7 +5,6 @@ import prisma from "@/lib/prisma";
 // route pour la création d'un employé
 export async function GET(request: Request) {
   try {
-
     // récupération des paramètres de la requête
     const { searchParams } = new URL(request.url);
 
@@ -23,32 +22,40 @@ export async function GET(request: Request) {
     // Récupération des employés de l'entreprise
     const employees = await prisma.user.findMany({
       where: {
-        CompanyId: companyId
+        CompanyId: companyId,
       },
       select: {
         id: true,
         email: true,
         givenName: true,
-        famillyName: true
-      }
-    })
+        famillyName: true,
+      },
+    });
 
     // récuperer le nom de l'entreprise
     const company = await prisma.company.findUnique({
       where: {
-        id: companyId
+        id: companyId,
       },
       select: {
-        name: true
-      }
-    })
+        name: true,
+      },
+    });
 
     const formattedEmployees = employees.map((employee) => ({
       id: employee.id,
       email: employee.email,
-      givenName: employee.givenName,
-      famillyName: employee.famillyName
-    }))
+      givenName: employee.givenName || null,
+      famillyName: employee.famillyName || null,
+    }));
+
+    return NextResponse.json(
+      { 
+        employees: formattedEmployees, 
+        companyName: company?.name 
+      },
+      { status: 500 }
+    );
     
   } catch (error) {
     console.error("Error getting companies", error);
