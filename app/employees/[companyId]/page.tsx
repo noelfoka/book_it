@@ -150,6 +150,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
               <div>
                 <span className="font-bold">{employee.email}</span>
+                <div className="md:mb-0 italic mt-1 text-gray-400">
+                  {hasFullName ? `${employee.givenName} ${employee.famillyName}` : "Pas encore inscrit"}
+                </div>
               </div>
             </div>
           </li>

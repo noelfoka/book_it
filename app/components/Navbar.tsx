@@ -16,11 +16,12 @@ const Navbar = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (user) {
+    /*if (user) {
       setLoading(false);
     } else {
       setLoading(true);
-    }
+    }*/
+    setLoading(false);
   });
 
   const isActive = (link: string) => pathname === link;
