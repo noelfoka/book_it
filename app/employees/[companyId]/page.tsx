@@ -55,6 +55,8 @@ const page = ({ params }: { params: { companyId: string } }) => {
   // Récupération des employés d'une entreprise
   const fetchEmploees = async () => {
     try {
+
+      const response = await fetch(`/api/employees?companyId=${params.companyId}`);
       
     } catch (error) {
       console.error(error);
