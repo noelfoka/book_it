@@ -52,6 +52,16 @@ const page = ({ params }: { params: { companyId: string } }) => {
     }
   };
 
+  // Récupération des employés d'une entreprise
+  const fetchEmploees = async () => {
+    try {
+      
+    } catch (error) {
+      console.error(error);
+      setNotification("Erreur interne du serveur");
+    }
+  }
+
   return (
     <Wrapper>
       {notification && (
