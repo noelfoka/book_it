@@ -19,6 +19,19 @@ export async function GET(request: Request) {
         { status: 400 }
       );
     }
+
+    // Récupération des employés de l'entreprise
+    const emplpoyees = await prisma.user.findMany({
+      where: {
+        CompanyId: companyId
+      },
+      select: {
+        id: true,
+        email: true,
+        givenName: true,
+        famillyName: true
+      }
+    })
     
   } catch (error) {
     console.error("Error getting companies", error);
