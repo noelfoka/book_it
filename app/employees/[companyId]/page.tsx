@@ -52,8 +52,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
         setNotification(`${data.message}`);
       }
 
-      setEmployeeEmail('');
-
+      setEmployeeEmail("");
     } catch (error) {
       console.error(error);
       setNotification("Erreur interne du serveur");
@@ -63,8 +62,9 @@ const page = ({ params }: { params: { companyId: string } }) => {
   // Récupération des employés d'une entreprise
   const fetchEmploees = async () => {
     try {
-
-      const response = await fetch(`/api/employees?companyId=${params.companyId}`);
+      const response = await fetch(
+        `/api/employees?companyId=${params.companyId}`
+      );
 
       // Vérifier si la réponse est ok
       if (!response.ok) {
@@ -80,12 +80,13 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
       // Définir la valeur de l'entreprise
       setCompanyName(data.companyName);
-      
+      setLoading(false);
+
     } catch (error) {
       console.error(error);
       setNotification("Erreur interne du serveur");
     }
-  }
+  };
 
   return (
     <Wrapper>
