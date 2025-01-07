@@ -11,7 +11,7 @@ const Navbar = () => {
   const { user } = useKindeBrowserClient();
   const pathname = usePathname();
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -47,6 +47,7 @@ const page = ({ params }: { params: { companyId: string } }) => {
 
       if (response.ok) {
         setNotification("Employé ajouté avec succès");
+        fetchEmploees();
         return;
       } else {
         setNotification(`${data.message}`);
@@ -58,6 +59,10 @@ const page = ({ params }: { params: { companyId: string } }) => {
       setNotification("Erreur interne du serveur");
     }
   };
+
+  useEffect(() => {
+    fetchEmploees();
+  }, [params.companyId]);
 
   // Récupération des employés d'une entreprise
   const fetchEmploees = async () => {
@@ -87,10 +92,6 @@ const page = ({ params }: { params: { companyId: string } }) => {
       setNotification("Erreur interne du serveur");
     }
   };
-
-  useEffect(() => {
-    fetchEmploees();
-  }, [params.companyId]);
 
   return (
     <Wrapper>
