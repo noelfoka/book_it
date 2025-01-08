@@ -22,7 +22,7 @@ export async function GET(request: Request) {
     // Récupération des employés de l'entreprise
     const employees = await prisma.user.findMany({
       where: {
-        CompanyId: companyId,
+        companyId: companyId,
       },
       select: {
         id: true,

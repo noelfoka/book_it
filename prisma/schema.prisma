@@ -15,8 +15,8 @@ model User {
   famillyName   String?
   givenName     String?
   email         String   @unique
-  CompanyId     String?
-  company       Company? @relation("CompanyEmployees", fields: [CompanyId], references: [id])
+  companyId     String?
+  company       Company? @relation("CompanyEmployees", fields: [companyId], references: [id])
   createdCompany Company[] @relation("CompanyCreators")
 }
 

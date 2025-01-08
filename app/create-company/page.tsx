@@ -16,7 +16,7 @@ export interface Company {
 const page = () => {
   const { user } = useKindeBrowserClient();
   const [companyName, setCompanyName] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [companies, setCompanies] = useState<Company[] | null>(null);
 
   const [notification, setNotification] = useState<string>("");
