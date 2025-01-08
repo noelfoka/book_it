@@ -63,9 +63,7 @@ const page = () => {
   const fetchCompanies = async () => {
     try {
       if (user?.email) {
-        const response = await fetch(`/api/companies?email=${user.email}`, {
-          method: "GET",
-        });
+        const response = await fetch(`/api/companies?email=${user.email}`);
 
         if (!response.ok) {
           // si la réponse n'est pas ok, on affiche une notification
